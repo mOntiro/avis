@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donnez votre avis - RH Phone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .stars {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Quelle est votre expérience avec RH Phone ?</h2>
+    <div id="rating">
+        <span class="stars" onclick="submitReview(1)">⭐</span>
+        <span class="stars" onclick="submitReview(2)">⭐⭐</span>
+        <span class="stars" onclick="submitReview(3)">⭐⭐⭐</span>
+        <span class="stars" onclick="submitReview(4)">⭐⭐⭐⭐</span>
+        <span class="stars" onclick="submitReview(5)">⭐⭐⭐⭐⭐</span>
+    </div>
+
+    <div id="feedback-form" class="hidden form-container">
+        <h3>Comment pouvons-nous nous améliorer ?</h3>
+        <textarea id="feedback" rows="4" cols="50" placeholder="Écrivez votre commentaire ici..."></textarea>
+        <br>
+        <button onclick="sendFeedback()">Envoyer</button>
+    </div>
+
+    <script>
+        function submitReview(stars) {
+            if (stars >= 4) {
+                window.location.href = "https://g.co/kgs/hW3bVHi";
+            } else {
+                document.getElementById("feedback-form").classList.remove("hidden");
+            }
+        }
+
+        function sendFeedback() {
+            let feedback = document.getElementById("feedback").value;
+            if (feedback.trim() !== "") {
+                alert("Merci pour votre retour ! Nous allons l'examiner.");
+                document.getElementById("feedback-form").classList.add("hidden");
+            } else {
+                alert("Veuillez écrire un commentaire avant d'envoyer.");
+            }
+        }
+    </script>
+</body>
+</html>
